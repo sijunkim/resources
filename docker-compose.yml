@@ -1,9 +1,9 @@
 services:
   # MySQL
-  db:
+  mysql:
     #build: .
     image: mysql:8.0.37
-    container_name: local-mysql
+    container_name: mysql
     command:
       - --default-authentication-plugin=mysql_native_password
       - --character-set-server=utf8mb4
@@ -20,7 +20,7 @@ services:
   # adminer. Database management in a single PHP file.
   adminer:
     image: adminer
-    container_name: local-mysql-adminer
+    container_name: adminer
     restart: "no"
     ports:
       - 8090:8080
