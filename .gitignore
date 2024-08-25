@@ -1,1 +1,3 @@
 /mysql/db
+/mysql/initdb.d/insert_nestjs.sql
+/mysql/initdb.d/insert_tuning.sql
