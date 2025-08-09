@@ -1,4 +1,19 @@
 services:
+  # MS-SQL Server
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    container_name: mssql
+    environment:
+      - SA_PASSWORD=iobnfio3_#t4
+      - ACCEPT_EULA=Y
+      - MSSQL_PID=Developer
+    ports:
+      - "1433:1433"
+    volumes:
+      - /var/opt/mssql
+    user: "0" # 루트 사용자로 실행
+    restart: always
+
   # MySQL
   mysql:
     #build: .
@@ -17,7 +32,18 @@ services:
       - ./mysql/db:/var/lib/mysql
     ports:
       - 3306:3306
+    networks:
+      - local-network
 
+  redis:
+    image: redis:7.4
+    container_name: redis
+    ports:
+      - "6379:6379"
+    command: redis-server
+    volumes:
+      - redis-data:/data
+    restart: always
     networks:
       - local-network
 
@@ -32,3 +58,7 @@ services:
 networks:
   local-network:
     driver: bridge
+
+volumes:
+  redis-data:
+    driver: local
