@@ -29,24 +29,25 @@ services:
 
   # Redis
   redis:
-    image: redis:7.4
+    image: redis:7.2
     container_name: redis
     ports:
       - "6379:6379"
-    command: redis-server --requirepass sijunkim
+    env_file:
+      - ./redis/.env
+    command: redis-server --requirepass ${REDIS_PASSWORD}
     volumes:
-      - ./redis/db:/data/db
+      - ./redis/db:/data
     restart: always
     networks:
       - local-network
 
   # MongoDB
   mongodb:
-    image: mongo:latest
+    image: mongo:6.0
     container_name: mongodb
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=admin
-      - MONGO_INITDB_ROOT_PASSWORD=password
+    env_file:
+      - ./mongodb/.env
     ports:
       - "27017:27017"
     volumes:
