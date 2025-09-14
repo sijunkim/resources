@@ -1,3 +1,15 @@
 /mysql/db
-/mysql/initdb.d/insert_nestjs.sql
-/mysql/initdb.d/insert_tuning.sql
+/mysql/conf.d/
+/mysql/initdb.d
+
+# MongoDB data
+/mongodb/db/
+
+# Redis data
+/redis/data/
+
+# IDE settings
+.idea/
+
+# macOS system file
+.DS_Store
