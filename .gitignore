@@ -1,12 +1,11 @@
+# MySQL data
 /mysql/db
-/mysql/conf.d/
-/mysql/initdb.d
 
 # MongoDB data
 /mongodb/db/
 
 # Redis data
-/redis/data/
+/redis/db
 
 # IDE settings
 .idea/
