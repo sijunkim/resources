@@ -1,0 +1,3 @@
+# Logstash 기본 설정 (필요에 따라 수정)
+http.host: "0.0.0.0"
+xpack.monitoring.enabled: false

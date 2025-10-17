@@ -7,6 +7,10 @@
 # Redis data
 /redis/db
 
+# Elasticsearch data
+/elasticsearch/data/
+!/elasticsearch/data/.gitkeep
+
 # IDE settings
 .idea/
 
