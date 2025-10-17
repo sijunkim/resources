@@ -1,0 +1,122 @@
+{
+  "index_patterns": [
+    "naver-news-*"
+  ],
+  "priority": 500,
+  "template": {
+    "settings": {
+      "number_of_shards": 1,
+      "number_of_replicas": 0,
+      "index.lifecycle.name": "naver-news-ilm",
+      "analysis": {
+        "analyzer": {
+          "ko_search": {
+            "type": "custom",
+            "tokenizer": "nori_tokenizer",
+            "filter": [
+              "lowercase"
+            ]
+          }
+        }
+      }
+    },
+    "mappings": {
+      "dynamic": true,
+      "properties": {
+        "@timestamp": {
+          "type": "date"
+        },
+        "id": {
+          "type": "long"
+        },
+        "article_id": {
+          "type": "long"
+        },
+        "title": {
+          "type": "text",
+          "analyzer": "ko_search",
+          "search_analyzer": "ko_search",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 512
+            }
+          }
+        },
+        "summary": {
+          "type": "text",
+          "analyzer": "ko_search",
+          "search_analyzer": "ko_search"
+        },
+        "company_id": {
+          "type": "long"
+        },
+        "naver_link_hash": {
+          "type": "keyword"
+        },
+        "naver_link": {
+          "type": "keyword",
+          "ignore_above": 2048
+        },
+        "original_link": {
+          "type": "keyword",
+          "ignore_above": 2048
+        },
+        "published_at": {
+          "type": "date"
+        },
+        "fetched_at": {
+          "type": "date"
+        },
+        "raw_json": {
+          "type": "object",
+          "enabled": false
+        },
+        "channel": {
+          "type": "keyword"
+        },
+        "status": {
+          "type": "keyword"
+        },
+        "http_status": {
+          "type": "integer"
+        },
+        "sent_at": {
+          "type": "date"
+        },
+        "response_body": {
+          "type": "text",
+          "analyzer": "ko_search",
+          "search_analyzer": "ko_search"
+        },
+        "scope": {
+          "type": "keyword"
+        },
+        "keyword": {
+          "type": "keyword",
+          "ignore_above": 512
+        },
+        "created_at": {
+          "type": "date"
+        },
+        "press_name": {
+          "type": "keyword"
+        },
+        "updated_at": {
+          "type": "date"
+        },
+        "key": {
+          "type": "keyword"
+        },
+        "value": {
+          "type": "text",
+          "analyzer": "ko_search",
+          "search_analyzer": "ko_search"
+        },
+        "count": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

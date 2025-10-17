@@ -1,3 +1,6 @@
-# Logstash 기본 설정 (필요에 따라 수정)
+# 기본 Logstash 설정
 http.host: "0.0.0.0"
 xpack.monitoring.enabled: false
+pipeline.ecs_compatibility: disabled
+config.reload.automatic: true
+config.reload.interval: 3s

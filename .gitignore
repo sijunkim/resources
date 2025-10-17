@@ -11,6 +11,12 @@
 /elasticsearch/data/
 !/elasticsearch/data/.gitkeep
 
+# Logstash JDBC 상태 및 드라이버
+/logstash/state/*
+!/logstash/state/.gitkeep
+/logstash/drivers/*
+!/logstash/drivers/.gitkeep
+
 # IDE settings
 .idea/
 

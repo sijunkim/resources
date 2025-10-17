@@ -1,0 +1,4 @@
+- pipeline.id: app-logs
+  path.config: /usr/share/logstash/pipeline/app-logs.conf
+- pipeline.id: mysql-sync
+  path.config: /usr/share/logstash/pipeline/mysql-sync.conf

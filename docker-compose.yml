@@ -67,13 +67,19 @@ services:
 
   # Logstash
   logstash:
-    image: docker.elastic.co/logstash/logstash:8.8.2
+    build:
+      context: ./logstash
+      dockerfile: Dockerfile
+    image: logstash-custom:8.8.2
     container_name: logstash
     env_file:
       - ./logstash/.env
     volumes:
       - ./logstash/pipeline:/usr/share/logstash/pipeline
       - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
+      - ./logstash/config/pipelines.yml:/usr/share/logstash/config/pipelines.yml
+      - ./logstash/drivers:/usr/share/logstash/drivers
+      - ./logstash/state:/usr/share/logstash/data
     ports:
       - "5044:5044"
       - "9600:9600"
