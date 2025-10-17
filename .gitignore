@@ -12,3 +12,5 @@
 
 # macOS system file
 .DS_Store
+mysql/initdb.d/create_tuning.sql
+mysql/initdb.d/insert_tuning.sql
