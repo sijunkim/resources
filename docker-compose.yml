@@ -1,12 +1,4 @@
 services:
-  # adminer. Database management in a single PHP file.
-  adminer:
-    image: adminer
-    container_name: adminer
-    restart: "no"
-    ports:
-      - 8090:8080
-
   # MySQL
   mysql:
     image: mysql:8.0.37
@@ -23,7 +15,7 @@ services:
       - ./mysql/initdb.d:/docker-entrypoint-initdb.d
       - ./mysql/db:/var/lib/mysql
     ports:
-      - 3306:3306
+      - "3306:3306"
     networks:
       - local-network
 
