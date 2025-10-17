@@ -33,11 +33,10 @@ services:
     container_name: redis
     ports:
       - "6379:6379"
-    env_file:
-      - ./redis/.env
-    command: redis-server --requirepass ${REDIS_PASSWORD}
+    command: redis-server /usr/local/etc/redis/redis.conf
     volumes:
       - ./redis/db:/data
+      - ./redis/conf/redis.conf:/usr/local/etc/redis/redis.conf
     restart: always
     networks:
       - local-network
