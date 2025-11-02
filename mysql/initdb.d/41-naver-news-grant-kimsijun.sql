@@ -1,0 +1,3 @@
+CREATE USER IF NOT EXISTS 'kimsijun'@'%' IDENTIFIED BY '1234';
+GRANT ALL PRIVILEGES ON `naver_news`.* TO 'kimsijun'@'%';
+FLUSH PRIVILEGES;
