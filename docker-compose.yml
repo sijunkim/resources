@@ -62,7 +62,8 @@ services:
         hard: -1
     volumes:
       - ./elasticsearch/data:/usr/share/elasticsearch/data
-      - ./elasticsearch/tmp:/usr/share/elasticsearch/tmp_custom
+    tmpfs:
+      - /usr/share/elasticsearch/tmp_custom:size=512m,uid=1000,gid=1000,mode=1777
     ports:
       - "9200:9200"
     restart: always
