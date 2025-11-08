@@ -51,7 +51,7 @@ services:
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.8.2
     container_name: elasticsearch
-    user: "1000:1000" # 👈 추가
+    user: "0:0"  # root 권한으로 실행
     env_file:
       - ./elasticsearch/.env
     ulimits:
