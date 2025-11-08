@@ -11,6 +11,10 @@
 /elasticsearch/data/
 !/elasticsearch/data/.gitkeep
 
+# Elasticsearch tmp
+/elasticsearch/tmp/
+!/elasticsearch/tmp/.gitkeep
+
 # Logstash JDBC 상태 및 드라이버
 /logstash/state/*
 !/logstash/state/.gitkeep

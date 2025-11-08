@@ -53,12 +53,16 @@ services:
     container_name: elasticsearch
     env_file:
       - ./elasticsearch/.env
+    environment:
+      - ES_TMPDIR=/usr/share/elasticsearch/tmp
+      - discovery.type=single-node
     ulimits:
       memlock:
         soft: -1
         hard: -1
     volumes:
       - ./elasticsearch/data:/usr/share/elasticsearch/data
+      - ./elasticsearch/tmp:/usr/share/elasticsearch/tmp   # ← 추가됨
     ports:
       - "9200:9200"
     restart: always
